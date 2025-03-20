@@ -12,11 +12,20 @@ from imblearn.over_sampling import SMOTE
 
 # File paths for datasets
 import os
-base_path = r"D:\jtcha1\Desktop\Python\csvfiles"
+
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the script's directory
+base_path = os.path.join(script_dir, "csvfiles")  # Append 'csvfiles' folder
+
+# Generate full file paths for each dataset
 file_paths = {year: os.path.join(base_path, f"cbb{year[-2:]}.csv") for year in [
     "cbb13", "cbb14", "cbb15", "cbb16", "cbb17", "cbb18", "cbb19",
     "cbb20", "cbb21", "cbb22", "cbb23", "cbb24"
 ]}
+
+# Debugging: Check if path exists
+print(f"📂 Looking for CSV files in: {base_path}")
+if not os.path.exists(base_path):
+    print(f"⚠ Error: The folder 'csvfiles' was not found in {script_dir}")
 
 # Load and merge datasets
 all_data = []

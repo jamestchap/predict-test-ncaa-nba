@@ -5,7 +5,7 @@ try:
     top_teams = pd.read_csv("top_contenders_2025.csv")
     print("✅ Loaded top contenders from 'top_contenders_2025.csv'")
 except FileNotFoundError:
-    print("❌ Error: 'top_contenders_2025.csv' not found! Run 'testneural.py' first.")
+    print("❌ Error: 'top_contenders_2025.csv' not found! Run 'train_and_predict_seeds.py' first.")
     exit()
 
 # Sort teams by overall power ranking (BARTHAG)
